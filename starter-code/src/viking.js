@@ -19,7 +19,7 @@ class Viking extends Soldier {
         this.name = name;
     }
     receiveDamage(damage) {
-        let mensaje = ""
+        let mensaje;
         this.health -= damage;
         (this.health > 0 ?
             mensaje = `${this.name} has received ${damage} points of damage` :
@@ -27,7 +27,7 @@ class Viking extends Soldier {
         return mensaje
     }
     battleCry() {
-        return "Odin Owns You All!";
+        return `Odin Owns You All!`;
     }
 }
 
@@ -37,7 +37,7 @@ class Saxon extends Soldier {
         super(health, strength);
     }
     receiveDamage(damage) {
-        let mensaje = ""
+        let mensaje;
         this.health -= damage;
         (this.health > 0 ?
             mensaje = `A Saxon has received ${damage} points of damage` :
@@ -74,14 +74,12 @@ class War {
     }
     showStatus() {
         let mensaje;
-        if (this.saxonArmy.length == 0)
-            mensaje = "Vikings have won the war of the century!"
-        else {
-            if (this.vikingArmy.length == 0)
-                mensaje = "Saxons have fought for their lives and survived another day..."
-            else
-                mensaje = "Vikings and Saxons are still in the thick of battle."
-        }
+        if (this.saxonArmy.length == 0) {
+            mensaje = `Vikings have won the war of the century!`
+        } else if (this.vikingArmy.length == 0) {
+            mensaje = `Saxons have fought for their lives and survived another day...`
+        } else
+            mensaje = `Vikings and Saxons are still in the thick of battle.`
         return mensaje
     }
 }
